@@ -4,7 +4,7 @@
 	"name": "Python 3",
 	"context": "..",
 	"dockerFile": "Dockerfile",
-	"settings": { 
+	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
 		"python.venvPath": ".venv",
 		"python.pythonPath": "${workspaceFolder}/.venv/bin/python",
@@ -12,6 +12,7 @@
 		"python.linting.mypyEnabled": true,
 		"python.linting.pylintEnabled": false,
 		"python.linting.flake8Enabled": true,
+		"python.linting.flake8Args": ["--max-line-length", "88"],
 		"python.linting.lintOnSave": true,
 		"[python]": {
 			"editor.formatOnSave": true,
