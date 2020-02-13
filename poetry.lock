@@ -169,6 +169,14 @@ qa = ["flake8 (3.7.9)"]
 testing = ["colorama (0.4.1)", "docopt", "pytest (>=3.9.0,<5.0.0)"]
 
 [[package]]
+category = "main"
+description = "Pure-python wrapper for libusb-1.0"
+name = "libusb1"
+optional = false
+python-versions = "*"
+version = "1.7.1"
+
+[[package]]
 category = "dev"
 description = "McCabe checker, plugin for flake8"
 name = "mccabe"
@@ -207,6 +215,28 @@ name = "mypy-extensions"
 optional = false
 python-versions = "*"
 version = "0.4.3"
+
+[[package]]
+category = "main"
+description = "NFC Data Exchange Format decoder and encoder."
+name = "ndeflib"
+optional = false
+python-versions = "*"
+version = "0.3.3"
+
+[[package]]
+category = "main"
+description = "Python module for Near Field Communication."
+name = "nfcpy"
+optional = false
+python-versions = ">=2.6"
+version = "1.0.3"
+
+[package.dependencies]
+libusb1 = "*"
+ndeflib = "*"
+pydes = "*"
+pyserial = "*"
 
 [[package]]
 category = "dev"
@@ -307,6 +337,14 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "2.5.0"
 
 [[package]]
+category = "main"
+description = "Pure python implementation of DES and TRIPLE DES encryption algorithm"
+name = "pydes"
+optional = false
+python-versions = "*"
+version = "2.0.1"
+
+[[package]]
 category = "dev"
 description = "passive checker of Python programs"
 name = "pyflakes"
@@ -329,6 +367,14 @@ name = "pyparsing"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 version = "2.4.6"
+
+[[package]]
+category = "main"
+description = "Python Serial Port Extension"
+name = "pyserial"
+optional = false
+python-versions = "*"
+version = "3.4"
 
 [[package]]
 category = "dev"
@@ -428,7 +474,7 @@ python-versions = "*"
 version = "0.1.8"
 
 [metadata]
-content-hash = "f04f358004681d9143cbea93ff96d71420de12900e0e9e3b7897b5f7c8a20e6b"
+content-hash = "7d5d8cc2347a261901f45dc26a48b8e00f1dd3d4129504b727cd1b3cc55d951e"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -488,6 +534,9 @@ jedi = [
     {file = "jedi-0.16.0-py2.py3-none-any.whl", hash = "sha256:b4f4052551025c6b0b0b193b29a6ff7bdb74c52450631206c262aef9f7159ad2"},
     {file = "jedi-0.16.0.tar.gz", hash = "sha256:d5c871cb9360b414f981e7072c52c33258d598305280fef91c6cae34739d65d5"},
 ]
+libusb1 = [
+    {file = "libusb1-1.7.1.tar.gz", hash = "sha256:adf64a4f3f5c94643a1286f8153bcf4bc787c348b38934aacd7fe17fbeebc571"},
+]
 mccabe = [
     {file = "mccabe-0.6.1-py2.py3-none-any.whl", hash = "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42"},
     {file = "mccabe-0.6.1.tar.gz", hash = "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"},
@@ -515,6 +564,14 @@ mypy = [
 mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
     {file = "mypy_extensions-0.4.3.tar.gz", hash = "sha256:2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"},
+]
+ndeflib = [
+    {file = "ndeflib-0.3.3-py2.py3-none-any.whl", hash = "sha256:c634b1af2ab454754f0fdbe1debd38247ed7bdaf94587359b857726f3ee7decb"},
+    {file = "ndeflib-0.3.3.tar.gz", hash = "sha256:1d56828558b9b16f2822a4051824346347b66adf5320ea86070748b6f2454a88"},
+]
+nfcpy = [
+    {file = "nfcpy-1.0.3-py3-none-any.whl", hash = "sha256:393b614e8d17671f55b75b1cdba06b4e7aa30b78a84f5cad2cc7c6fc65ae100b"},
+    {file = "nfcpy-1.0.3.tar.gz", hash = "sha256:cf7d30e4a09f4dc4bb377b5a72ac607cf92a3e93dbcbb91cb90ec0343a95cdfe"},
 ]
 packaging = [
     {file = "packaging-20.1-py2.py3-none-any.whl", hash = "sha256:170748228214b70b672c581a3dd610ee51f733018650740e98c7df862a583f73"},
@@ -556,6 +613,9 @@ pycodestyle = [
     {file = "pycodestyle-2.5.0-py2.py3-none-any.whl", hash = "sha256:95a2219d12372f05704562a14ec30bc76b05a5b297b21a5dfe3f6fac3491ae56"},
     {file = "pycodestyle-2.5.0.tar.gz", hash = "sha256:e40a936c9a450ad81df37f549d676d127b1b66000a6c500caa2b085bc0ca976c"},
 ]
+pydes = [
+    {file = "pyDes-2.0.1.tar.gz", hash = "sha256:e2ab8e21d2b83e90d90dbfdcb6fb8ac0000b813238b7ecaede04f8435c389012"},
+]
 pyflakes = [
     {file = "pyflakes-2.1.1-py2.py3-none-any.whl", hash = "sha256:17dbeb2e3f4d772725c777fabc446d5634d1038f234e77343108ce445ea69ce0"},
     {file = "pyflakes-2.1.1.tar.gz", hash = "sha256:d976835886f8c5b31d47970ed689944a0262b5f3afa00a5a7b4dc81e5449f8a2"},
@@ -567,6 +627,10 @@ pygments = [
 pyparsing = [
     {file = "pyparsing-2.4.6-py2.py3-none-any.whl", hash = "sha256:c342dccb5250c08d45fd6f8b4a559613ca603b57498511740e65cd11a2e7dcec"},
     {file = "pyparsing-2.4.6.tar.gz", hash = "sha256:4c830582a84fb022400b85429791bc551f1f4871c33f23e44f353119e92f969f"},
+]
+pyserial = [
+    {file = "pyserial-3.4-py2.py3-none-any.whl", hash = "sha256:e0770fadba80c31013896c7e6ef703f72e7834965954a78e71a3049488d4d7d8"},
+    {file = "pyserial-3.4.tar.gz", hash = "sha256:6e2d401fdee0eab996cf734e67773a0143b932772ca8b42451440cfed942c627"},
 ]
 pytest = [
     {file = "pytest-5.3.5-py3-none-any.whl", hash = "sha256:ff615c761e25eb25df19edddc0b970302d2a9091fbce0e7213298d85fb61fef6"},
