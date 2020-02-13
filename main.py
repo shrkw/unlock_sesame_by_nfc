@@ -28,7 +28,7 @@ class SesameNFCReader:
 
     def main(self) -> None:
         rdwr_options = {
-            "targets": ["212F", "424F"],  # read as Type3 (FeliCa／FeliCa Lite-S)
+            "targets": ["212F", "424F"],  # read as Type3 (FeliCa／FeliCa Lite-S) ref. https://www.sony.co.jp/Products/felica/about/scheme.html
             "on-connect": self.on_connect,
         }
         with nfc.ContactlessFrontend("usb") as clf:
@@ -44,7 +44,7 @@ class SesameNFCReader:
             except nfc.clf.UnsupportedTargetError:
                 logger.exception("unspported target")
             except KeyboardInterrupt:
-                pass
+                logger.warning("Interrupt by keyboard input")
             finally:
                 clf.close()
 
