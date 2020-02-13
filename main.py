@@ -1,5 +1,6 @@
 import binascii
 import errno
+import logging
 import time
 
 import nfc
@@ -7,13 +8,19 @@ import nfc
 SLEEP_SEC = 1
 
 
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+)
+logger = logging.getLogger(__name__)
+
+
 class SesameNFCReader:
     def validate_idm(self, idm: str) -> bool:
-        print(idm)
+        logger.info(idm)
         return True
 
     def on_connect(self, tag: nfc.tag.Tag) -> None:
-        print(tag)
+        logger.info(tag)
         idm = binascii.hexlify(tag.identifier).decode().upper()
         if self.validate_idm(idm):
             # TODO send request to sesame api
@@ -31,13 +38,15 @@ class SesameNFCReader:
                     time.sleep(SLEEP_SEC)
             except IOError as error:
                 if error.errno == errno.EIO:
-                    print("lost connection to local device")
+                    logger.exception("lost connection to local device")
                 else:
-                    print(error)
-            except nfc.clf.UnsupportedTargetError as error:
-                print(error)
+                    logger.exception("io error")
+            except nfc.clf.UnsupportedTargetError:
+                logger.exception("unspported target")
             except KeyboardInterrupt:
                 pass
+            finally:
+                clf.close()
 
 
 if __name__ == "__main__":
