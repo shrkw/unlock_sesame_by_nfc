@@ -5,6 +5,8 @@ import time
 
 import nfc
 
+import sesame_api
+
 SLEEP_SEC = 1
 
 
@@ -23,12 +25,12 @@ class SesameNFCReader:
         logger.info(tag)
         idm = binascii.hexlify(tag.identifier).decode().upper()
         if self.validate_idm(idm):
-            # TODO send request to sesame api
-            pass
+            sesame_api.unlock()
 
     def main(self) -> None:
         rdwr_options = {
-            "targets": ["212F", "424F"],  # read as Type3 (FeliCa／FeliCa Lite-S) ref. https://www.sony.co.jp/Products/felica/about/scheme.html
+            "targets": ["212F", "424F"],  # read as Type3 (FeliCa／FeliCa Lite-S) ref.
+            # https://www.sony.co.jp/Products/felica/about/scheme.html
             "on-connect": self.on_connect,
         }
         with nfc.ContactlessFrontend("usb") as clf:
