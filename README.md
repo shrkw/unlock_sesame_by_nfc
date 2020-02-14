@@ -1,15 +1,26 @@
-# vscode-remote-python-poetry-in-real
-VS Code Remote Development Example for Python in Real world
+# Unlock SESAME Smart Key by NFC Tag
 
-It works well with following features:
+Confirmed on:
 
-* Automatically formatting by black
-* Linting by flake8 and mypy
+- Raspberry Pi
+- Sony RC-S380
+- NFC Type3 (FeliCa／FeliCa Lite-S)
+  - Suica
+  - PASMO
+  - Apple Pay
 
-## Confirmed versions
+## Deploy
 
-* VSCode 1.42.0
-* VSCode Extensions
-  * Remote - Containers 0.101.0
-  * Python 2020.2.62710
-* Docker Desktop 2.2.0.3
+```
+python -m venv .venv && ~/.poetry/bin/poetry install
+```
+
+
+
+
+
+
+
+
+
+
