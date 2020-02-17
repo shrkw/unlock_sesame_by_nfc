@@ -6,7 +6,7 @@ authors = ["Hiroyuki Shirakawa"]
 license = "MIT License"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 nfcpy = "^1.0.3"
 pysesame2 = "^1.0.2"
 
