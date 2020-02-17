@@ -7,9 +7,9 @@ from pysesame2 import Sesame
 
 logger = logging.getLogger(__name__)
 
-SESAME_UUID = os.getenv("SESAME_UUID")
+SESAME_DEVICE_UUID = os.getenv("SESAME_DEVICE_UUID")
 SESAME_APIKEY = os.getenv("SESAME_APIKEY")
-device_id = UUID(SESAME_UUID)
+device_id = UUID(SESAME_DEVICE_UUID)
 
 
 def unlock() -> bool:
