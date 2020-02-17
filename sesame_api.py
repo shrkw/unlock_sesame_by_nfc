@@ -3,7 +3,7 @@ import os
 from time import sleep
 from uuid import UUID
 
-from pyseame2 import Sesame
+from pysesame2 import Sesame
 
 logger = logging.getLogger(__name__)
 
