@@ -1,4 +1,4 @@
-# Unlock SESAME Smart Key by NFC Tag
+# Unlock SESAME Smart Lock by NFC Tag
 
 Confirmed on:
 
