@@ -1,10 +1,12 @@
 import binascii
 import errno
+import json
 import logging
 import time
 
 import nfc
 
+import permission_checker
 import sesame_api
 
 SLEEP_SEC = 1
@@ -17,14 +19,13 @@ logger = logging.getLogger(__name__)
 
 
 class SesameNFCReader:
-    def validate_idm(self, idm: str) -> bool:
-        logger.info(idm)
-        return True
+    def __init__(self):
+        self.permission_checker = permission_checker.PermissionChecker()
 
     def on_connect(self, tag: nfc.tag.Tag) -> None:
         logger.info(tag)
         idm = binascii.hexlify(tag.identifier).decode().upper()
-        if self.validate_idm(idm):
+        if self.permission_checker.validate_idm(idm):
             sesame_api.unlock()
 
     def main(self) -> None:
