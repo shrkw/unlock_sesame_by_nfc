@@ -1,6 +1,6 @@
+import argparse
 import binascii
 import errno
-import json
 import logging
 import time
 
@@ -19,14 +19,16 @@ logger = logging.getLogger(__name__)
 
 
 class SesameNFCReader:
-    def __init__(self):
+    def __init__(self, dryrun: bool = True):
         self.permission_checker = permission_checker.PermissionChecker()
+        self.dry_run = dryrun
 
     def on_connect(self, tag: nfc.tag.Tag) -> None:
         logger.info(tag)
         idm = binascii.hexlify(tag.identifier).decode().upper()
         if self.permission_checker.validate_idm(idm):
-            sesame_api.unlock()
+            if not self.dry_run:
+                sesame_api.unlock()
 
     def main(self) -> None:
         rdwr_options = {
@@ -53,5 +55,8 @@ class SesameNFCReader:
 
 
 if __name__ == "__main__":
-    reader = SesameNFCReader()
+    parser = argparse.ArgumentParser(description="Unlock SESAME lock by NFC")
+    parser.add_argument("--dryrun", action="store_true")
+    args = parser.parse_args()
+    reader = SesameNFCReader(args.dryrun)
     reader.main()
