@@ -15,7 +15,11 @@ device_id = UUID(SESAME_DEVICE_UUID)
 def unlock() -> bool:
     logger.info("Move into SESAME API Request process")
     sesame = Sesame(device_id, SESAME_APIKEY)
-    logger.info(sesame.get_status())
+    status = sesame.get_status()
+    logger.info(status)
+    if not status["locked"]:
+        logger.info("Not locked.")
+        return True
 
     task = sesame.async_unlock()
     while task.pooling() is False:
