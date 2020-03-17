@@ -21,7 +21,7 @@ def unlock() -> bool:
     while task.pooling() is False:
         logger.info("Processing...")
         sleep(1)
-    if task.is_successful():
+    if task.is_successful:
         logger.info("Unlock Succeed!")
         return True
     else:
