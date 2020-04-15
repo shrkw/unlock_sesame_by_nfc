@@ -10,14 +10,16 @@ Confirmed on:
   - Apple Pay
 
 ## Deploy
+
 ### Raspberry Pi
-* Install Raspbian via `dd`
-* ssh
-* Wi-Fi
-* `ssh-copy-id`
-* `useradd foobar`
-* `userdel pi`
-* `raspi-config —expand-rootfs`
+
+- Install Raspbian via `dd`
+- ssh
+- Wi-Fi
+- `ssh-copy-id`
+- `useradd foobar`
+- `userdel pi`
+- `raspi-config —expand-rootfs`
 
 At this point, you can test if USB device works well.
 
@@ -27,23 +29,26 @@ Bus 001 Device 002: ID 054c:06c3 Sony Corp. RC-S380
 ```
 
 ### Runtime
-* Use Preinstalled Python 3.7
-	* Don’t bother
-* Install Pip
-	* `sudo apt-get -y install python3-pip`
-* Install Poetry
-	* `curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3`
+
+- Use Preinstalled Python 3.7
+  - Don’t bother
+- Install Pip
+  - `sudo apt-get -y install python3-pip`
+- Install Poetry
+  - `curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3`
 
 ### Application
-* `sudo apt-get install git`
-* Create Deploy Key
-	* `ssh-keygen -t ed25519 -C 'Github Deploy key' -f id_rsa`
-* Register to GitHub Repository
-* `git clone git@github.com:shrkw/unlock_sesame_by_nfc.git`
-* `cd unlock_sesame_by_nfc`
-* `python3 -m venv .venv && ~/.poetry/bin/poetry install --no-dev`
+
+- `sudo apt-get install git`
+- Create Deploy Key
+  - `ssh-keygen -t ed25519 -C 'Github Deploy key' -f id_rsa`
+- Register to GitHub Repository
+- `git clone git@github.com:shrkw/unlock_sesame_by_nfc.git`
+- `cd unlock_sesame_by_nfc`
+- `python3 -m venv .venv && ~/.poetry/bin/poetry install --no-dev`
 
 ### Allow USB Device
+
 USB Device allows just for root user. So you need a few steps to permit for normal users.
 
 ```bash
@@ -67,8 +72,10 @@ Sorry, but I couldn't find any contactless device
 Follow the above instructions.
 
 ## Run
+
 Required env vars:
-```
+
+```bash
 SESAME_DEVICE_UUID
 SESAME_APIKEY
 ```
@@ -78,8 +85,9 @@ So, you can run as following:
 
 ## Supervisord
 
+You can use `conf/supervisor/unlock_sesame_by_nfc.conf`.
 
-
-
-
-
+```bash
+sudo apt-get install supervisor
+sudo nano /etc/supervisor/conf.d/unlock_sesame_by_nfc.conf
+```
