@@ -490,7 +490,7 @@ description = "a python refactoring library..."
 name = "rope"
 optional = false
 python-versions = "*"
-version = "0.16.0"
+version = "0.17.0"
 
 [package.extras]
 dev = ["pytest"]
@@ -578,7 +578,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools"]
 
 [metadata]
-content-hash = "a6661f8f85d0e743614acd9ed09e3d510cdee1230c251e75b7b45481d29c9bce"
+content-hash = "f4360d5d471531f34045df8e12ec60e7e0c6114710d9b10c50e1af1be3b3c6a5"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -788,9 +788,7 @@ requests = [
     {file = "requests-2.22.0.tar.gz", hash = "sha256:11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"},
 ]
 rope = [
-    {file = "rope-0.16.0-py2-none-any.whl", hash = "sha256:ae1fa2fd56f64f4cc9be46493ce54bed0dd12dee03980c61a4393d89d84029ad"},
-    {file = "rope-0.16.0-py3-none-any.whl", hash = "sha256:52423a7eebb5306a6d63bdc91a7c657db51ac9babfb8341c9a1440831ecf3203"},
-    {file = "rope-0.16.0.tar.gz", hash = "sha256:d2830142c2e046f5fc26a022fe680675b6f48f81c7fc1f03a950706e746e9dfe"},
+    {file = "rope-0.17.0.tar.gz", hash = "sha256:658ad6705f43dcf3d6df379da9486529cf30e02d9ea14c5682aa80eb33b649e1"},
 ]
 six = [
     {file = "six-1.14.0-py2.py3-none-any.whl", hash = "sha256:8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"},
