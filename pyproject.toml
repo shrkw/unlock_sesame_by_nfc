@@ -11,7 +11,7 @@ nfcpy = "^1.0.3"
 pysesame2 = "^1.0.2"
 
 [tool.poetry.dev-dependencies]
-black = "^19.10b0"
+black = "^21.4b2"
 ipython = "^7.15.0"
 mypy = "^0.781"
 rope = "^0.17.0"
