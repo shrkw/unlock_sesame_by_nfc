@@ -13,7 +13,7 @@ pysesame2 = "^1.0.2"
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
 ipython = "^7.15.0"
-mypy = "^0.781"
+mypy = "^0.900"
 rope = "^0.17.0"
 pytest = "^5.4.2"
 flake8 = "^3.8.3"
